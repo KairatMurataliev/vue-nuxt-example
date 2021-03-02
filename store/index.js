@@ -1,22 +1,46 @@
 import Vuex from 'vuex'
+import Vue from 'vue';
+import axios from 'axios';
 
-import actions from './actions'
-import getters from './getters'
-import mutations from './mutations'
+Vue.use(Vuex);
 
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      user: {
-        username: '',
-        token: ''
-      },
       gallery: null,
+      user: null
     },
-    actions,
-    getters,
-    mutations
+    mutations: {
+      addGallery(state, payload) {
+        state.gallery = payload
+      },
+      loginUser(state, payload) {
+        state.user = payload
+      },
+      logoutUser(state) {
+        state.user = null
+      }
+    },
+    actions: {
+      async fetchGallery({commit}) {
+        try {
+          const response = await axios.get('http://localhost:8000/photos');
+          console.log(response.data);
+          commit('addGallery', response.data);
+        } catch(e) {
+          console.log(e);
+        }
+      },
+      async registerUser({commit}, {username, password}) {
+        try {
+          const response = await axios.post('http://localhost:8000/users/register', {username, password});
+          commit('loginUser', response.data);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }
   })
 }
 
-export default createStore
+export default createStore;

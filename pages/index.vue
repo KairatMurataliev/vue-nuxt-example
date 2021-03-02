@@ -1,60 +1,36 @@
 <template>
   <div class="container">
-
+    <PhotoComponent
+      v-for="photo of gallery" :key="photo._id"
+      :photo="photo.photo"
+      :title="photo.title"
+      :author="photo.author"
+      :id="photo._id"
+    />
   </div>
 </template>
 
 <script>
+import {mapState, mapMutations, mapActions} from 'vuex';
+
 export default {
-  async asyncData({app}) {
-    const response = await app.$axios.$get('http://localhost:8000/photos');
-    console.log(response);
+  mounted() {
+    this.fetchGallery()
   },
-  computed: {
-    getPhotos() {
-      return this.$store.getters.getGallery;
-    },
+  computed: mapState(['gallery']),
+  methods: {
+    ...mapActions(['fetchGallery']), ...mapMutations(['addGallery'])
   }
 }
 </script>
 
 <style>
 .container {
+  width: 80%;
   margin: 0 auto;
-  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>

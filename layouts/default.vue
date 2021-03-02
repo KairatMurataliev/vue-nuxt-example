@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :user="authUser"/>
+    <Header/>
     <Nuxt />
   </div>
 </template>
@@ -8,15 +8,9 @@
 <script>
   import Header from '../components/UI/Header.vue'
 
-
   export default {
     components: {
-      Header,
-    },
-    computed: {
-      authUser() {
-        return this.$store.getters.authUser;
-      }
+      Header
     }
   }
 

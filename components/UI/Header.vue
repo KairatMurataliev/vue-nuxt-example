@@ -3,10 +3,10 @@
     <nuxt-link to="/">
       Home
     </nuxt-link>
-    <nuxt-link v-if="user" to="/login">
+    <nuxt-link to="/login">
       Login
     </nuxt-link>
-    <nuxt-link v-if="user" to="/register">
+    <nuxt-link to="/register">
       Register
     </nuxt-link>
   </div>
