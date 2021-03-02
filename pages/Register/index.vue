@@ -23,7 +23,6 @@ export default {
   },
   methods: {
     registerUser() {
-      console.log('s;kgmsf');
       this.$store.dispatch({
         type: 'registerUser',
         username: this.username,

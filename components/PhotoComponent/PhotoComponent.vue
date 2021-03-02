@@ -3,7 +3,7 @@
     <img :src="`http://localhost:8000/uploads/${photo}`" alt="image" class="image">
     <h4>{{title}}</h4>
     <p>{{author.username}}</p>
-    <NuxtLink :to="`photos/${id}`">
+    <NuxtLink :to="`${author._id}`">
       See More
     </NuxtLink>
   </div>
@@ -23,12 +23,7 @@ export default {
     },
     author: {
       type: Object,
-      required: true
     },
-    id: {
-      type: String,
-      required: true
-    }
   }
 }
 </script>

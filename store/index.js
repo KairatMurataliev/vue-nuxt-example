@@ -8,14 +8,18 @@ const createStore = () => {
   return new Vuex.Store({
     state: {
       gallery: null,
-      user: null
+      user: null,
+      usersGallery: []
     },
     mutations: {
       addGallery(state, payload) {
-        state.gallery = payload
+        state.gallery = payload;
+      },
+      addUsersPhotos(state, payload) {
+        state.usersGallery = payload;
       },
       loginUser(state, payload) {
-        state.user = payload
+        state.user = payload;
       },
       logoutUser(state) {
         state.user = null
@@ -36,6 +40,14 @@ const createStore = () => {
           const response = await axios.post('http://localhost:8000/users/register', {username, password});
           commit('loginUser', response.data);
         } catch (e) {
+          console.log(e);
+        }
+      },
+      async fetchUsersGallery({commit}, id) {
+        try {
+          const response = await axios.get(`http://localhost:8000/photos/${id}`);
+          commit('addUsersPhotos', response.data);
+        } catch(e) {
           console.log(e);
         }
       }

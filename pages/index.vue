@@ -5,7 +5,6 @@
       :photo="photo.photo"
       :title="photo.title"
       :author="photo.author"
-      :id="photo._id"
     />
   </div>
 </template>
