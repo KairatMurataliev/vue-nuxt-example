@@ -1,11 +1,13 @@
 <template>
   <div>
     <h3 v-if="usersGallery && usersGallery.author" class="author">{{ usersGallery.author.username }}</h3>
-    <div class="photo-container">
-      <div v-for="image of usersGallery.photos" class="photo">
-        <img :src="`http://localhost:8000/uploads/${image.photo}`" alt="" class="image">
-      </div>
-    </div>
+    <b-container class="p-4 bg-dark">
+      <b-row>
+        <b-col v-for="image of usersGallery.photos">
+          <b-img thumbnail fluid :src="`http://localhost:8000/uploads/${image.photo}`" alt="Responsive image"></b-img>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -24,24 +26,17 @@ export default {
 </script>
 
 <style scoped>
-  .photo {
-    width: 400px;
-    padding: 10px;
-    border-radius: 10px;
-    background: #e3e3e3;
-    margin-bottom: 10px
-  }
-  .image {
-    width: 100%
-  }
-  .photo-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  .author {
-    font-size: 24px;
-    text-transform: uppercase;
-    margin-bottom: 20px
-  }
+.photo {
+  width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #e3e3e3;
+  margin-bottom: 10px
+}
+
+.author {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-bottom: 20px
+}
 </style>

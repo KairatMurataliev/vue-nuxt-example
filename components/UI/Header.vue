@@ -7,6 +7,9 @@
         <b-nav-item>
           <nuxt-link to="/">Home</nuxt-link>
         </b-nav-item>
+        <b-nav-item>
+          <nuxt-link to="/addPhoto">Add Photo</nuxt-link>
+        </b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -19,7 +22,7 @@
             <em>{{ user && user.user.username }}</em>
           </template>
           <b-dropdown-item href="#">
-            <nuxt-link :to="`/profile/${user && user.user._id}`">Profile</nuxt-link>
+            <nuxt-link :to="`/profile`">Profile</nuxt-link>
           </b-dropdown-item>
           <b-dropdown-item href="#">
             Sign Out

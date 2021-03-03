@@ -1,8 +1,9 @@
 import Vuex from 'vuex'
 import Vue from 'vue';
 
-import {createActions} from './actions'
-import {createMutations} from './mutations';
+import actions from './actions'
+import mutations from './mutations';
+import getters from "@/store/getters";
 
 Vue.use(Vuex);
 
@@ -13,8 +14,9 @@ const createStore = () => {
       user: null,
       usersGallery: []
     },
-    mutations: createMutations(),
-    actions: createActions(),
+    mutations,
+    actions,
+    getters
   })
 }
 

@@ -1,6 +1,6 @@
 <template>
   <b-card
-    title="Card Title"
+    :title="title"
     :img-src="`http://localhost:8000/uploads/${photo}`"
     img-alt="Image"
     img-top
@@ -9,10 +9,10 @@
     class="mb-2"
   >
     <b-card-text>
-      {{title}}
+      {{author.username}}
     </b-card-text>
     <b-card-text>
-      {{author.username}}
+      <nuxt-link :to="`/gallery/${author._id}`">See More</nuxt-link>
     </b-card-text>
   </b-card>
 </template>

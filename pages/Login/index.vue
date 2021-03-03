@@ -1,6 +1,9 @@
 <template>
   <div>
     <AuthForm :title="`Login`" @submit="loginUser"/>
+    <b-button>
+      <nuxt-link to="/register">Register</nuxt-link>
+    </b-button>
   </div>
 </template>
 

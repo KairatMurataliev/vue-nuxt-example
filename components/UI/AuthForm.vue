@@ -1,41 +1,34 @@
 <template>
-  <div>
-<!--    <b-form @submit.prevent="submit">-->
-<!--      -->
-<!--    </b-form>-->
+  <b-form @submit.prevent="submit">
+    <b-form-group
+      id="user"
+      label="Username: "
+      label-for="username"
+    >
+      <b-form-input
+        id="username"
+        v-model.trim="username"
+        type="text"
+        placeholder="Enter username"
+        required
+      ></b-form-input>
+    </b-form-group>
 
-
-    <form @submit.prevent="submit">
-      <b-form-group
-        id="user"
-        label="Username: "
-        label-for="username"
-      >
-        <b-form-input
-          id="username"
-          v-model.trim="username"
-          type="text"
-          placeholder="Enter username"
-          required
-        ></b-form-input>
-      </b-form-group>
-
-      <b-form-group
-        id="pass"
-        label="Password: "
-        label-for="password"
-      >
-        <b-form-input
-          id="password"
-          v-model.trim="password"
-          type="text"
-          placeholder="Enter password"
-          required
-        ></b-form-input>
-      </b-form-group>
-      <b-button type="submit" variant="primary">{{ title }}</b-button>
-    </form>
-  </div>
+    <b-form-group
+      id="pass"
+      label="Password: "
+      label-for="password"
+    >
+      <b-form-input
+        id="password"
+        v-model.trim="password"
+        type="text"
+        placeholder="Enter password"
+        required
+      ></b-form-input>
+    </b-form-group>
+    <b-button type="submit" variant="primary">{{ title }}</b-button>
+  </b-form>
 </template>
 
 <script>
