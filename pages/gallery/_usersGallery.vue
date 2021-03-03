@@ -26,14 +26,6 @@ export default {
 </script>
 
 <style scoped>
-.photo {
-  width: 400px;
-  padding: 10px;
-  border-radius: 10px;
-  background: #e3e3e3;
-  margin-bottom: 10px
-}
-
 .author {
   font-size: 24px;
   text-transform: uppercase;

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {mapState, mapMutations, mapActions} from 'vuex';
+import {mapState, mapActions} from 'vuex';
 
 export default {
   mounted() {
@@ -18,9 +18,9 @@ export default {
   },
   computed: mapState(['gallery']),
   methods: {
-    ...mapActions(['fetchGallery']), ...mapMutations(['addGallery']),
+    ...mapActions(['fetchGallery']),
   },
-  middleware: ['authMiddleware']
+  middleware: ['auth']
 }
 </script>
 

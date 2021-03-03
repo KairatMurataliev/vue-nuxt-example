@@ -30,9 +30,6 @@ export default {
     ...mapActions(['fetchUsersGallery', 'deletePhoto']), ...mapMutations(['addUsersPhotos']),
     deletePhoto(id) {
       this.$store.dispatch({type: 'deletePhoto', id})
-      this.$router.push({
-        path: '/'
-      })
     }
   },
 }

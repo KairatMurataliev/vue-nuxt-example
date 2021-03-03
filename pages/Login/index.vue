@@ -22,9 +22,6 @@ export default {
         username,
         password
       })
-      this.$router.push({
-        path: '/'
-      })
     }
   }
 }

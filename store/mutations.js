@@ -7,8 +7,6 @@ export default {
   },
   addUser(state, payload) {
     state.user = payload;
-    const usr = JSON.stringify(payload);
-    window.$nuxt.$cookies.set('user', usr)
   },
   logoutUser(state) {
     state.user = null
