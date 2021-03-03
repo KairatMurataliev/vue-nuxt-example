@@ -18,7 +18,7 @@ export default {
   },
   computed: mapState(['gallery']),
   methods: {
-    ...mapActions(['fetchGallery']), ...mapMutations(['addGallery'])
+    ...mapActions(['fetchGallery']), ...mapMutations(['addGallery']),
   }
 }
 </script>

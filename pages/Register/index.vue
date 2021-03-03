@@ -1,9 +1,7 @@
 <template>
   <AuthForm
     :title="'Register'"
-    :password="password"
-    :username="username"
-    :register="registerUser"
+    @submit="registerUser"
   />
 </template>
 
@@ -15,21 +13,13 @@ export default {
   components: {
     AuthForm
   },
-  data() {
-    return {
-      username: '',
-      password: ''
-    }
-  },
   methods: {
-    registerUser() {
+    registerUser({username, password}) {
       this.$store.dispatch({
         type: 'registerUser',
-        username: this.username,
-        password: this.password
+        username,
+        password
       })
-      this.email = ''
-      this.password = ''
     }
   }
 }

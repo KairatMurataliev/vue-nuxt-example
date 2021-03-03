@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="author">{{ usersGallery.author.username }}</h3>
+    <h3 v-if="usersGallery && usersGallery.author" class="author">{{ usersGallery.author.username }}</h3>
     <div class="photo-container">
       <div v-for="image of usersGallery.photos" class="photo">
         <img :src="`http://localhost:8000/uploads/${image.photo}`" alt="" class="image">

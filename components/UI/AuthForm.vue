@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="register">
+    <form @submit.prevent="submit">
       <label for="username">Username</label>
       <input
         id="username"
@@ -17,7 +17,7 @@
         type="text"
         placeholder="password"
       >
-      <button>{{ title }}</button>
+      <button type="submit">{{ title }}</button>
     </form>
   </div>
 </template>
@@ -30,16 +30,19 @@ export default {
       type: String,
       required: true
     },
-    register: {
-      type: Function,
-      required: true
-    },
-    username: {
-      type: String
-    },
-    password: {
-      type: String
-    },
+  },
+  data() {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    submit() {
+      this.$emit('submit', {username: this.username, password: this.password})
+      this.username = '';
+      this.password = '';
+    }
   }
 }
 </script>

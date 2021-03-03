@@ -1,12 +1,20 @@
 <template>
-  <div class="photo">
-    <img :src="`http://localhost:8000/uploads/${photo}`" alt="image" class="image">
-    <h4>{{title}}</h4>
-    <p>{{author.username}}</p>
-    <NuxtLink :to="`${author._id}`">
-      See More
-    </NuxtLink>
-  </div>
+  <b-card
+    title="Card Title"
+    :img-src="`http://localhost:8000/uploads/${photo}`"
+    img-alt="Image"
+    img-top
+    tag="article"
+    style="max-width: 20rem;"
+    class="mb-2"
+  >
+    <b-card-text>
+      {{title}}
+    </b-card-text>
+    <b-card-text>
+      {{author.username}}
+    </b-card-text>
+  </b-card>
 </template>
 
 <script>
@@ -29,18 +37,5 @@ export default {
 </script>
 
 <style scoped>
-  .photo {
-    border: 1px solid #000;
-    padding: 10px;
-    border-radius: 10px;
-    background: #e3e3e3;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 10px
-  }
 
-  .image {
-    width: 400px
-  }
 </style>
