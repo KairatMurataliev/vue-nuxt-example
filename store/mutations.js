@@ -6,8 +6,10 @@ export const createMutations = () => {
     addUsersPhotos(state, payload) {
       state.usersGallery = payload;
     },
-    loginUser(state, payload) {
+    addUser(state, payload) {
       state.user = payload;
+      const usr = JSON.stringify(payload);
+      window.$nuxt.$cookies.set('user', usr)
     },
     logoutUser(state) {
       state.user = null

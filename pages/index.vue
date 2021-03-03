@@ -19,7 +19,8 @@ export default {
   computed: mapState(['gallery']),
   methods: {
     ...mapActions(['fetchGallery']), ...mapMutations(['addGallery']),
-  }
+  },
+  middleware: ['authMiddleware']
 }
 </script>
 

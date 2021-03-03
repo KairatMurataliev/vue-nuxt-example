@@ -15,7 +15,6 @@ const createStore = () => {
     },
     mutations: createMutations(),
     actions: createActions(),
-
   })
 }
 

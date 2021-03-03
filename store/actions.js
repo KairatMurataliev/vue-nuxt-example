@@ -13,7 +13,15 @@ export const createActions = () => {
     async registerUser({commit}, {username, password}) {
       try {
         const response = await axios.post('http://localhost:8000/users/register', {username, password});
-        commit('loginUser', response.data);
+        commit('addUser', response.data);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    async loginUser({commit}, {username, password}) {
+      try{
+        const response = await axios.post('http://localhost:8000/users/sessions', {username, password});
+        commit('addUser', response.data);
       } catch (e) {
         console.log(e);
       }

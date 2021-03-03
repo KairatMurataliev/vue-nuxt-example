@@ -1,15 +1,38 @@
 <template>
-  <div class="navigation">
-    <nuxt-link to="/" class="nav-link">
-      Home
-    </nuxt-link>
-    <nuxt-link to="/login" class="nav-link">
-      Login
-    </nuxt-link>
-    <nuxt-link to="/register" class="nav-link">
-      Register
-    </nuxt-link>
-  </div>
+  <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar-brand href="#">Gallery</b-navbar-brand>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <b-nav-item>
+          <nuxt-link to="/">Home</nuxt-link>
+        </b-nav-item>
+      </b-navbar-nav>
+
+      <!-- Right aligned nav items -->
+      <b-navbar-nav class="ml-auto">
+
+
+        <b-nav-item-dropdown v-if="user" right>
+          <!-- Using 'button-content' slot -->
+          <template #button-content>
+            <em>{{ user && user.user.username }}</em>
+          </template>
+          <b-dropdown-item href="#">
+            <nuxt-link :to="`/profile/${user && user.user._id}`">Profile</nuxt-link>
+          </b-dropdown-item>
+          <b-dropdown-item href="#">
+            Sign Out
+          </b-dropdown-item>
+        </b-nav-item-dropdown>
+
+        <b-button v-else variant="outline-primary">
+          <nuxt-link to="/login">Login</nuxt-link>
+        </b-button>
+
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
 </template>
 
 <script>
@@ -24,15 +47,5 @@ export default {
 </script>
 
 <style scoped>
-  .navigation {
-    background: #357ed6;
-    width: 100%;
-    padding: 20px 20px
-  }
-  .nav-link {
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
-    margin-right: 20px
-  }
+
 </style>

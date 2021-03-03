@@ -1,19 +1,22 @@
 <template>
   <div>
-    <Header/>
-    <div class="container">
-      <Nuxt />
-    </div>
+    <Header :user="user"/>
+    <Nuxt />
   </div>
 </template>
 
 <script>
   import Header from '../components/UI/Header.vue'
+  import {mapState, mapMutations} from 'vuex';
 
   export default {
     components: {
       Header
-    }
+    },
+    computed: mapState(['user']),
+    methods: {
+      ...mapMutations(['addUser'])
+    },
   }
 
 </script>
@@ -38,10 +41,6 @@ html {
   box-sizing: border-box;
 }
 
-.container {
-  width: 85%;
-  margin: 0 auto;
-}
 
 *,
 *::before,
