@@ -10,7 +10,7 @@
         style="max-width: 20rem;"
         class="mb-2"
       >
-        <b-button variant="danger" @click="deletePhoto">Delete</b-button>
+        <b-button variant="danger" @click="deletePhoto(image._id)">Delete</b-button>
       </b-card>
     </div>
   </div>

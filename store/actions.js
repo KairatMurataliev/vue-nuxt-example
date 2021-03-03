@@ -27,7 +27,7 @@ export default {
   },
   async fetchUsersGallery({commit}, id) {
     try {
-      const response = await axios.get(`http://localhost:8000/photos/${id.id}`);
+      const response = await axios.get(`http://localhost:8000/photos/${id}`);
       commit('addUsersPhotos', response.data);
     } catch (e) {
       console.log(e);
@@ -45,10 +45,11 @@ export default {
       console.log(e);
     }
   },
-  async deletePhoto({commit}, id) {
+  async deletePhoto({commit, dispatch}, id) {
     try {
       const headers = {'Token': this.getters.getUser.user.token};
-      await axios.delete(`http://localhost:8000/photos/${id}`, {headers});
+      await axios.delete(`http://localhost:8000/photos/${id.id}`, {headers});
+      dispatch({type: 'fetchGallery'})
     } catch(e) {
       console.log(e);
     }
